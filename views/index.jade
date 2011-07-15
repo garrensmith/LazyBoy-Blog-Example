@@ -1,0 +1,10 @@
+h2 Welcome to my blog
+
+#posts
+  - posts.forEach(function (post) {
+    h3
+      a(href="/post/#{post.url}")
+        = post.title
+
+
+  - })
