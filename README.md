@@ -6,6 +6,7 @@ This is a very simple blog application to demo [LazyBoy](https://github.com/garr
 
       git clone https://garrensmith@github.com/garrensmith/LazyBoy-Blog-Example.git
       npm update
+      create a database called lz-blog on your local couchdb instance
       node app.js
 
 ## Usage
