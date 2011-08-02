@@ -1,4 +1,38 @@
-h1= post.title
-p= post.content
+#posts
+  h1= post.title
+  p= post.content
+#comments
+  h3 Comments
+  #comment-items
+  - post.comments.forEach(function (comment) {
+    p.bold= comment.username
+    p#comment-msg= comment.msg
+  -});
+  p
+    form(id="form-comment", name="comment")
+      Label Name:
+      br
+      input(type="text", id="username", name="username")
+      br
+      Label Comment: 
+      br
+      textarea(cols="100",rows="8", id="msg", name="msg")
+      br
+      input(type="submit", value="Comment")
 p
   a(href="/") back
+
+
+script(type="text/javascript")
+  $(document).ready(function() {
+    $("#form-comment").submit(function (e) {
+      e.preventDefault();
+      var comment = {username: $('#username').val(), msg: $("#msg").val() };
+
+      $.post("/post/#{post.id}/comment", comment,
+      function () {
+        $("#comment-items").append('<p class="bold">' + comment.username + '</p><p class="comment-msg">' + comment.msg + '</p>');
+      });
+    });
+
+  });

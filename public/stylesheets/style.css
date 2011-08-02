@@ -5,3 +5,12 @@ body {
 a {
   color: #00b7ff;
 }
+#posts {
+  margin-bottom: 50px;
+}
+.bold {
+  font-weight: bold;
+}
+#comment-msg {
+  margin-left: 5px;
+}
