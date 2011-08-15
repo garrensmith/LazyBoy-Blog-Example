@@ -19,8 +19,7 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 
   Model.create_connection('lz-blog');
-  require('./models/blog');
-  Model.load();
+  Model.load('models');
 });
 
 app.configure('development', function(){
